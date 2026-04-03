@@ -60,7 +60,7 @@ class OrderMockDataService:
         return [o for o in self.orders if o.status.lower() == status.lower()]
 
     def add(self, data):
-        new = Order(id=self.next_id, **data.dict())
+        new = Order(id=self.next_id, status="pending", **data.dict())
         self.orders.append(new)
         self.next_id += 1
         return new
